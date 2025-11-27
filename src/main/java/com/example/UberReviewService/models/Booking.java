@@ -1,36 +1,36 @@
-package com.example.UberReviewService.models;
+    package com.example.UberReviewService.models;
 
-import jakarta.persistence.*;
+    import jakarta.persistence.*;
 
-import lombok.*;
+    import lombok.*;
 
-import java.util.Date;
+    import java.util.Date;
 
-@Entity
-@Getter
-@Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+    @Entity
+    @Getter
+    @Setter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
 
-public class Booking  extends BaseModel{
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private Review review; // we have defined a 1:1 relationship between booking and review
+    public class Booking  extends BaseModel{
+        @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+        private Review review; // we have defined a 1:1 relationship between booking and review
 
-    @Enumerated(value = EnumType.STRING)
-    private BookingStatus bookingStatus;
+        @Enumerated(value = EnumType.STRING)
+        private BookingStatus bookingStatus;
 
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Date startTime;
+        @Temporal(value = TemporalType.TIMESTAMP)
+        private Date startTime;
 
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Date endTime;
+        @Temporal(value = TemporalType.TIMESTAMP)
+        private Date endTime;
 
-    private Long totalDistance;
+        private Long totalDistance;
 
-    @ManyToOne
-    private Driver driver;
+        @ManyToOne(fetch = FetchType.LAZY)
+        private Driver driver;
 
-    @ManyToOne
-    private Passenger passenger;
-}
+        @ManyToOne(fetch = FetchType.LAZY)
+        private Passenger passenger;
+    }
