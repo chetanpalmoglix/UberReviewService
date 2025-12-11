@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler" , "bookings"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler" , "bookings"})
 public class Passenger extends BaseModel{
     private String name;
 
