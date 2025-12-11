@@ -13,7 +13,7 @@ import java.util.Optional;
 @RestController()
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
     public ReviewController(ReviewService reviewService){
         this.reviewService = reviewService;
     }
